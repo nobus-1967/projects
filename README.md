@@ -1,2 +1,2 @@
-# projects
-Repository for storing finished projects
+# My finished projects
+Repository for storing finished projects.

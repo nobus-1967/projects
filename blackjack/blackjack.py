@@ -2,7 +2,7 @@
 """
 Blackjack game with simple rules (version 1.1).
 
-Classic casino rules (except splitting of players's pocket cards).
+Classic casino rules (except splitting of players' pocket cards).
 Implements S17 rule - dealer must draw on 16 or less, and stand on 17 or more.
 The program creates and uses only one card desk per game.
 """

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Memopad - CLI program using SQLite to store memos."""
+"""MemoPad - CLI program using SQLite to store memos."""
 from pathlib import Path
 
 from prompt_toolkit.shortcuts import set_title
@@ -20,7 +20,7 @@ from sqlconnector import edit_title, edit_body, edit_tag
 from sqlconnector import search_memo_by_rowid, search_memo_by_date
 from sqlconnector import search_memo_by_tag
 from sqlconnector import search_memo_by_title, search_memo_by_text
-from sqlconnector import show_recent, show_last, show_all, count_memos
+from sqlconnector import show_recent, show_last, show_all, show_total_memos
 
 
 def main() -> None:
@@ -53,7 +53,7 @@ def main() -> None:
         elif command in ['view-all', '-va']:
             show_all(path)
         elif command in ['count', '-c']:
-            count_memos(path)
+            show_total_memos(path)
         elif command in ['add', '-a']:
             memo = create_new_memo()
             print_new_memo(memo)

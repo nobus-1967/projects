@@ -6,7 +6,7 @@ from pyperclip import copy as copy_to_clipboard
 from sqlite_icu import extension_path
 
 from dbmanager import check_db, check_backup, set_backup_path, restore_db
-from mdprinter import print_memo_from_db, print_md
+from mdprinter import print_memo_from_db, print_md, print_total
 from memoeditor import input_corrected_body
 from memoeditor import input_corrected_title, input_corrected_tag
 from prompter import check_confirmation, get_rowid
@@ -138,6 +138,13 @@ def show_all(path: Path) -> None:
         print_md('Ошибка обращения к базе заметок.')
     finally:
         connection.close()
+
+
+def show_total_memos(path: Path) -> None:
+    """Show total of memos in database."""
+    total: int = count_memos(path)
+
+    print_total(total)
 
 
 def add_memo(path: Path, memo: tuple) -> None:
@@ -522,7 +529,6 @@ def count_memos(path: Path) -> int:
     try:
         cursor.execute(sql_select)
         total = len(cursor.fetchall())
-        print_md(f'Всего в базе заметок: {total}.')
 
     except DatabaseError:
         print_md('Ошибка обращения к базе заметок.')

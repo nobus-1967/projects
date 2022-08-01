@@ -37,3 +37,10 @@ def print_md(text: str) -> None:
     console: Console = Console()
 
     console.print(Markdown(text))
+
+
+def print_total(total: int) -> None:
+    """Print total of memos in DB."""
+    console: Console = Console()
+
+    console.print(f'Всего заметок в базе: {total}.')

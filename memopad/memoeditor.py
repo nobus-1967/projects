@@ -70,7 +70,7 @@ def input_corrected_title() -> tuple[str, str]:
     no_title: str = '## [Без заголовка]'
 
     print_md(
-        'Вставьте прежний текст из буфера (`CTRL+Y`) и внесите в него '
+        f'\nВставьте прежний текст из буфера (`CTRL+Y`) и внесите в него '
         + 'исправления, затем нажмите `ENTER`:'
     )
     corrected_title: str = get_title_to_edit().strip()
@@ -90,7 +90,7 @@ def input_corrected_body() -> tuple[str, str]:
     no_text: str = '[Пустая заметка]'
 
     print_md(
-        'Вставьте прежний текст из буфера (`CTRL+Y`) и внесите в него '
+        f'\nВставьте прежний текст из буфера (`CTRL+Y`) и внесите в него '
         + 'исправления, для выхода нажмите `ESCAPE` и затем `ENTER`:'
     )
     corrected_text: str = get_text_to_edit().strip()
@@ -108,7 +108,7 @@ def input_corrected_tag() -> tuple[str, str]:
     no_tag: str = '#no_tag'
 
     print_md(
-        'Вставьте прежний текст из буфера (`CTRL+Y`) и внесите в него '
+        f'\nВставьте прежний текст из буфера (`CTRL+Y`) и внесите в него '
         + 'исправления, затем нажмите `ENTER`:'
     )
     corrected_tag: str = get_tag_to_edit().strip()

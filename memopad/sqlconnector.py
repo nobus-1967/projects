@@ -267,7 +267,7 @@ def edit_tag(path: Path) -> None:
             updated_date_time: str = updated[0]
             corrected_tag: str = updated[1]
 
-            print_md('Сохранить заметку с отредактированным тэгом?')
+            print_md('Сохранить заметку с отредактированным тегом?')
             confirmation: str = check_confirmation()
 
             if confirmation == 'yes':
@@ -448,7 +448,7 @@ def search_memo_by_tag(path: Path) -> None:
     sql_select_tag: str = '''SELECT ROWID, date_time, titles, bodies, tags
                              FROM memos
                              WHERE lower(tags, "ru_RUS") LIKE ?;'''
-    print_md('Введите фрагмент тэга заметки:')
+    print_md('Введите фрагмент тега заметки:')
     tag: str = get_tag_to_search().strip()
 
     if tag != '':
@@ -465,9 +465,9 @@ def search_memo_by_tag(path: Path) -> None:
                 print_memo_from_db(memo)
         else:
             if tag == '':
-                print_md('Тэг не задан, заметка не найдена.')
+                print_md('тег не задан, заметка не найдена.')
             else:
-                print_md(f'Заметка с `{tag}` в тэге не найдена.')
+                print_md(f'Заметка с `{tag}` в теге не найдена.')
 
     except DatabaseError:
         print_md('Ошибка обращения к базе заметок.')

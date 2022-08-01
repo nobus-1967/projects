@@ -54,7 +54,7 @@ def input_tag() -> str:
     """Input and return tag of new memo."""
     no_tag: str = '#no_tag'
 
-    print_md('Введите тэг или просто нажмите `ENTER`:')
+    print_md('Введите тег или просто нажмите `ENTER`:')
     tag: str = get_new_tag().strip()
 
     if tag:

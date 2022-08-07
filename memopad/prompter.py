@@ -65,7 +65,7 @@ COMMANDS: list[str] = [
     'recreate-db',
     '-ed',
     'quit',
-    '-q',
+    '-q'
 ]
 CONFIRMATIONS: list[str] = ['yes', '-y', 'no', '-n']
 
@@ -76,7 +76,7 @@ def get_command() -> str:
 
     command: str = prompt(
         ANSI('\033[34;1mmemopad\033[0m ' '\033[31;1m>>>\033[0m '),
-        completer=command_completer,
+        completer=command_completer
     )
 
     return command
@@ -105,7 +105,7 @@ def confirm_command() -> str:
             '\033[34;1mno\033[0m'
             '\033[31;1m)\033[0m '
         ),
-        completer=confirm_completer,
+        completer=confirm_completer
     )
 
     return command
@@ -229,7 +229,9 @@ def get_text_to_search() -> str:
     """Prompt to enter text in memo's body to search."""
     text_to_search: str = prompt(
         ANSI(
-            '\033[31;1m(\033[0m' '\033[34;1mТекст\033[0m' '\033[31;1m)\033[0m '
+            '\033[31;1m(\033[0m'
+            '\033[34;1mТекст\033[0m'
+            '\033[31;1m)\033[0m '
         )
     )
 

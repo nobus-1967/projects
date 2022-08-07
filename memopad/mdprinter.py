@@ -12,9 +12,11 @@ def print_new_memo(memo: tuple) -> None:
     body: str = memo[2]
     tag: str = memo[3]
 
-    console.print(f'\n{date_time} {tag}')
+    console.print('')
+    console.print(f'{date_time} {tag}')
     console.print(Markdown(title))
     console.print(Markdown(body))
+    console.print('')
 
 
 def print_memo_from_db(memo: tuple) -> None:
@@ -27,9 +29,11 @@ def print_memo_from_db(memo: tuple) -> None:
     body: str = memo[3]
     tag: str = memo[4]
 
-    console.print(f'\n{date_time} {tag} (ID: {rowid})')
+    console.print('')
+    console.print(f'{date_time} {tag} (ID: {rowid})')
     console.print(Markdown(title))
     console.print(Markdown(body))
+    console.print('')
 
 
 def print_md(text: str) -> None:

@@ -1,6 +1,6 @@
 """Program messages for MemoPad."""
 TITLE: str = """
-# MEMOPAD (SQLite-версия 1.1.3)
+# MEMOPAD (SQLite-версия 1.1.4)
 
 """
 INFO = """

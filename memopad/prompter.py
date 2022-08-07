@@ -135,9 +135,10 @@ def get_rowid() -> int:
                 )
             )
         )
-        assert rowid > 0
+        if rowid <= 0:
+            raise ValueError
 
-    except (AssertionError, ValueError):
+    except ValueError:
         rowid = 0
 
         return rowid

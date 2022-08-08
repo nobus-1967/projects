@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Collect, encrypt/decript, store and view service data with passwords.
-Version 1.1
+Version 1.2
+
 """
 import pyperclip
 
@@ -79,8 +80,10 @@ def main():
                 if len(enc_database) > 0 and proceed == 'Y':
                     key = get_service_key(enc_database)
                     dec_database = dataencryptor.decrypt_database(enc_database)
-                    print(f'Your login: {dec_database[key][0]},',
-                          f'your password: {dec_database[key][1]}')
+                    print(
+                        f'Your login: {dec_database[key][0]},',
+                        f'your password: {dec_database[key][1]}',
+                    )
                     pyperclip.copy(dec_database[key][1])
                     print('Your password was copied to the clipboard!')
             elif menu_choice == 'A':
@@ -98,8 +101,10 @@ def main():
                     enc_password = dataencryptor.encrypt_password(password)
                     enc_database[key][1] = enc_password
                     dec_database = dataencryptor.decrypt_database(enc_database)
-                    print(f'Your login: {dec_database[key][0]},',
-                          f'your password: {dec_database[key][1]}')
+                    print(
+                        f'Your login: {dec_database[key][0]},',
+                        f'your password: {dec_database[key][1]}',
+                    )
                     print('Your password was changes!')
                     dataencryptor.store_database(enc_database)
                 elif len(enc_database) > 0 and proceed == 'Q':
@@ -151,7 +156,7 @@ def show_menu():
 def get_menu_choice():
     """Get user's menu_choice from menu's items."""
     try:
-        
+
         menu_choice = input('\t>>> Enter your choice (V/C/A/G/D/L or Q): ')
         assert menu_choice.upper() in 'VCAGDLQ'
     except (AssertionError, ValueError):
@@ -199,7 +204,7 @@ def get_service_choice(database):
     """Input user's choice to choose a service."""
     try:
         user_choice = int(input('\t>>> Enter your choice (number): '))
-        assert user_choice in [number for number in range(1, len(database)+1)]
+        assert user_choice in [number for number in range(1, len(database) + 1)]
     except (AssertionError, ValueError):
 
         print('Enter valid number of a service.')

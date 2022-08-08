@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Collect, encrypt/decript, store and view service data with passwords.
-Version 1.1
+Version 1.2
+
 """
 import pathlib
 import getpass
@@ -80,8 +81,10 @@ def main():
                 if len(enc_database) > 0 and proceed == 'Y':
                     key = get_service_key(enc_database)
                     dec_database = decrypt_database(enc_database)
-                    print(f'Your login: {dec_database[key][0]},',
-                          f'your password: {dec_database[key][1]}')
+                    print(
+                        f'Your login: {dec_database[key][0]},',
+                        f'your password: {dec_database[key][1]}',
+                    )
                     pyperclip.copy(dec_database[key][1])
                     print('Your password was copied to the clipboard!')
             elif menu_choice == 'A':
@@ -99,8 +102,10 @@ def main():
                     enc_password = encrypt_password(password)
                     enc_database[key][1] = enc_password
                     dec_database = decrypt_database(enc_database)
-                    print(f'Your login: {dec_database[key][0]},',
-                          f'your password: {dec_database[key][1]}')
+                    print(
+                        f'Your login: {dec_database[key][0]},',
+                        f'your password: {dec_database[key][1]}',
+                    )
                     print('Your password was changes!')
                     store_database(enc_database)
                 elif len(enc_database) > 0 and proceed == 'Q':
@@ -219,16 +224,16 @@ def add_service(enc_database):
 
 def encrypt_password(password):
     """Encrypt user's password using base64."""
-    bin_password = bytes(password, 'utf-8')
+    encoded_password = password.encode('UTF-8')
 
-    return base64.b64encode(bin_password)
+    return base64.b64encode(encoded_password)
 
 
 def decrypt_password(enc_password):
     """Decrypt passwords using base64."""
-    bin_password = base64.b64decode(enc_password)
+    dec_password = base64.b64decode(enc_password)
 
-    return str(bin_password).lstrip('b').strip('\'')
+    return dec_password.decode('UTF-8')
 
 
 def decrypt_database(enc_database):
@@ -249,8 +254,9 @@ def view_database(database):
         for index, key in enumerate(database.keys()):
             data = database.get(key)
 
-            print(f'{index+1}) {key} -',
-                  f'login: {data[0]}, password: {data[1]}')
+            print(
+                f'{index+1}) {key} -', f'login: {data[0]}, password: {data[1]}'
+            )
     else:
         print('Your database is empty.')
 
@@ -315,7 +321,7 @@ def get_service_choice(database):
     """Input user's choice to choose a service."""
     try:
         user_choice = int(input('\t>>> Enter your choice (number): '))
-        assert user_choice in [number for number in range(1, len(database)+1)]
+        assert user_choice in [number for number in range(1, len(database) + 1)]
     except (AssertionError, ValueError):
 
         print('Enter valid number of a service.')

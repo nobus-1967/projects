@@ -6,4 +6,6 @@
 
 Автор программы: **Анатолий Щербина** (https://github.com/nobus-1967).
 
+Version/Версия: `1.2`
+
 Лицензия: [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).

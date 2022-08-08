@@ -16,16 +16,16 @@ def add_service(enc_database):
 
 def encrypt_password(password):
     """Encrypt user's password using base64."""
-    bin_password = bytes(password, 'utf-8')
+    encoded_password = password.encode('UTF-8')
 
-    return base64.b64encode(bin_password)
+    return base64.b64encode(encoded_password)
 
 
 def decrypt_password(enc_password):
     """Decrypt passwords using base64."""
-    bin_password = base64.b64decode(enc_password)
+    dec_password = base64.b64decode(enc_password)
 
-    return str(bin_password).lstrip('b').strip('\'')
+    return dec_password.decode('UTF-8')
 
 
 def decrypt_database(enc_database):
@@ -46,8 +46,9 @@ def view_database(database):
         for index, key in enumerate(database.keys()):
             data = database.get(key)
 
-            print(f'{index+1}) {key} -',
-                  f'login: {data[0]}, password: {data[1]}')
+            print(
+                f'{index+1}) {key} -', f'login: {data[0]}, password: {data[1]}'
+            )
     else:
         print('Your database is empty.')
 

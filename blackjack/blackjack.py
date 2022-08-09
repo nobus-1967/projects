@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Blackjack game with simple rules (version 1.1).
+Blackjack game with simple rules (version 1.2).
 
 Classic casino rules (except splitting of players' pocket cards).
 Implements S17 rule - dealer must draw on 16 or less, and stand on 17 or more.
 The program creates and uses only one card desk per game.
 """
-import random
+from random import randrange
 
 # Define winning constants
 WIN_SCORE = 21
@@ -28,10 +28,6 @@ def main():
     # Create hands for player and dealer
     player_hand = []
     dealer_hand = []
-
-    # Create totals for player and dealer
-    player_total = 0
-    dealer_total = 0
 
     # Create flags if anybody exceeds 21
     player_exceed = False
@@ -112,7 +108,7 @@ def main():
                 player_total = count_hand(player_hand)
                 print(f'Your total: {player_total}')
 
-                # Check if player exeeds 21
+                # Check if player exceeds 21
                 if player_total > WIN_SCORE:
                     player_exceed = True
                     print('Oh... BUST!')
@@ -138,7 +134,7 @@ def main():
                 dealer_total = count_hand(dealer_hand)
                 print(f'Dealer\'s total: {dealer_total}')
 
-                # Check if dealer exeeds 21
+                # Check if dealer exceeds 21
                 if dealer_total > WIN_SCORE:
                     dealer_exceed = True
                     print('Oh... BUST!')
@@ -208,21 +204,21 @@ def show_rules():
 def create_cards():
     """Create new card deck."""
     # Constants for card decks
-    RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-    SUITS = ['clubs', 'diamonds', 'hearts', 'spades']
-    VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
+    ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+    suits = ['clubs', 'diamonds', 'hearts', 'spades']
+    vals = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1]
 
     # Create list of cards (rank with value)
     cards = []
 
-    for rank in RANKS:
-        for suit in SUITS:
+    for rank in ranks:
+        for suit in suits:
             cards.append(f'{rank} of {suit}')
 
     # Multiply values for all 52 cards
     values = []
 
-    for value in VALUES:
+    for value in vals:
         for cycle in range(4):
             values.append(value)
 
@@ -232,7 +228,7 @@ def create_cards():
 
 def deal_card(card_deck):
     """Deal a card from the playing card deck."""
-    return card_deck.pop(random.randrange(0, len(card_deck)))
+    return card_deck.pop(randrange(0, len(card_deck)))
 
 
 def show_card(dealt_card):
@@ -286,13 +282,13 @@ def get_user_choice():
     try:
         user_choice = int(input('>>> Enter your choice (1 or 0): '))
         assert user_choice in [0, 1]
-    # If users's input is not 1 or 0 - return None
+    # If users' input is not 1 or 0 - return None
     except (AssertionError, ValueError):
 
         print('You should type 1 or 0 and then ENTER.')
-        user_choice = None
+        return None
 
-    finally:
+    else:
         return user_choice
 
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Enter services data, encrypt/decrypt passwords, store and view databases."""
-import getpass
 import base64
 import pickle
 
@@ -61,7 +60,7 @@ def view_services(database):
         for index, key in enumerate(database.keys()):
             print(f'{index+1}: {key}')
     else:
-        ('Stored services not found!')
+        print('Stored services not found!')
 
 
 def store_database(enc_database):

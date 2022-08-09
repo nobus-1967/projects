@@ -14,7 +14,7 @@ def set_data_dir():
 
 
 def check_password():
-    """Check if master pasword (data file) exists."""
+    """Check if master password (data file) exists."""
     path = pathlib.Path('/home/nobus/.password_manager/password.dat')
     return path.exists() and path.is_file()
 

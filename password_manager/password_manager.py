@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Collect, encrypt/decript, store and view service data with passwords.
+Collect, encrypt/decrypt, store and view service data with passwords.
 Version 1.2
 
 """
@@ -161,9 +161,9 @@ def get_menu_choice():
         assert menu_choice.upper() in 'VCAGDLQ'
     except (AssertionError, ValueError):
         print('Enter a valid choice!')
-        menu_choice = None
+        return None
 
-    finally:
+    else:
         return menu_choice
 
 
@@ -184,14 +184,14 @@ def get_proceed_choice():
         assert user_choice.upper() in 'YQ'
     except (AssertionError, ValueError):
         print('Enter valid choice (Y or Q).')
-        user_choice = None
+        return None
 
-    finally:
+    else:
         return user_choice
 
 
 def check_proceed_choice():
-    """Get and check user's procceed or cancel."""
+    """Get and check user's proceed or cancel."""
     proceed_choice = get_proceed_choice()
 
     while proceed_choice is None:
@@ -208,9 +208,9 @@ def get_service_choice(database):
     except (AssertionError, ValueError):
 
         print('Enter valid number of a service.')
-        user_choice = None
+        return None
 
-    finally:
+    else:
         return user_choice
 
 

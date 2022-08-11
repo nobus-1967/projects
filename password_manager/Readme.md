@@ -8,4 +8,4 @@ Author/Автор: **Анатолий Щербина** (https://github.com/nobus
 
 Version/Версия: `1.2`
 
-Лицензия: [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+License/Лицензия: [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).

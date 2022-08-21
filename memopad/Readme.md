@@ -18,6 +18,6 @@
 
 Автор программы: **Анатолий Щербина** (https://github.com/nobus-1967).
 
-Версия программы: `1.1.4`
+Версия программы: `1.1.5`
 
 Лицензия: [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).

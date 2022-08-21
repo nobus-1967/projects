@@ -1,6 +1,6 @@
 """Program messages for MemoPad."""
 TITLE: str = """
-# MEMOPAD (SQLite-версия 1.1.4)
+# MEMOPAD (SQLite-версия 1.1.5)
 
 """
 INFO = """
@@ -64,3 +64,9 @@ BACKUP: str = """
 - `recreate-db`(`-ed`) - пересоздание базы заметок
 
 """
+CLEAR: str = (
+    """
+Все данные очищены, работа приложения **`MemoPad`** завершена.
+"""
+    + COPYRIGHT
+)

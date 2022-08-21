@@ -90,3 +90,21 @@ def remove_db(path: Path) -> None:
 
         if confirmation == 'yes':
             path.unlink()
+
+
+def clear_data(path: Path) -> None:
+    """Clear all data and remove working directory."""
+    working_dir: Path = path.parent
+    backup_path: Path = set_backup_path(path)
+    is_db: bool = check_db(path)
+    is_backup: bool = check_backup(path)
+
+    print_md('Очистить все данные и удалить папку приложения?')
+    confirmation: str = check_confirmation()
+
+    if confirmation == 'yes':
+        if is_db:
+            path.unlink()
+        if is_backup:
+            backup_path.unlink()
+        Path.rmdir(working_dir)

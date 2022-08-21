@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """MemoPad - CLI program using SQLite to store memos."""
+import sys
 from pathlib import Path
 
 from prompt_toolkit.shortcuts import set_title
 
 from commandshelp import COMMANDS
-from dbmanager import set_db_path, backup_db, remove_db, restore_db
+from dbmanager import set_db_path, backup_db, remove_db, restore_db, clear_data
 from howtokeys import HOTKEYS
 from howtomd import MARKDOWN
 from mdprinter import print_new_memo, print_md
 from memoeditor import create_new_memo
 from messages import HOWTO, VIEW, EDIT, DEL, SEARCH, BACKUP
-from messages import TITLE, INFO, COPYRIGHT
+from messages import TITLE, INFO, COPYRIGHT, CLEAR
 from prompter import check_command
 from sqlconnector import add_memo, delete_memo, delete_all
 from sqlconnector import check_db_integrity, check_db_path_and_table
@@ -96,9 +97,13 @@ def main() -> None:
             remove_db(path)
             create_db(path)
 
+        elif command in ['clear', '-r']:
+            clear_data(path)
+            print_md(CLEAR)
+            sys.exit()
+
         command = check_command()
 
-    backup_db(path)
     print_md(COPYRIGHT)
 
 

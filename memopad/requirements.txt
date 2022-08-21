@@ -1,4 +1,4 @@
 prompt_toolkit
 pyperclip
 rich
-sqlite_icu
+sqlite-icu

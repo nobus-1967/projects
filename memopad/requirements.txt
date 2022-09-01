@@ -1,4 +1,0 @@
-prompt_toolkit
-pyperclip
-rich
-sqlite-icu

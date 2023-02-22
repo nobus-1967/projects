@@ -1,6 +1,6 @@
 # Password Manager
 
-**Password Manager** &mdash; CLI-program to collect, encrypt/decrypt, store and view service data with passwords.
+**Password Manager** &mdash; console program to collect, encrypt/decrypt, store and view service data with passwords.
 
 **Password Manager** — консольная программа для сбора, шифрования/дешифрования, хранения и просмотра данных о сервисах с паролями.
 

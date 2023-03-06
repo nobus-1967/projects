@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Collect, encrypt/decript, store and view service data with passwords.
+Collect, encrypt/decrypt, store and view service data with passwords.
 Version 1.2
 
 """
